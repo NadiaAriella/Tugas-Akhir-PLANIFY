@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar PLANIFY</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="assets/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="assets/fullcalendar.css">
+    <script src="assets/moment.min.js"></script>
+    <script src="assets/jquery-ui.min.js"></script>
+    <script src="assets/fullcalendar.min.js"></script>
+
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard">
+    <!-- Start Sidebar -->
+        <div class="sidebar">
+        <!-- Start Menu Button -->
+            <div class="menu">
+                <div id="menu-button">
+                    <input type="checkbox" id="menu-checkbox">
+                    <label for="menu-checkbox" id="menu-label">
+                        <div id="hamburger"></div>
+                    </label>
+                </div>
+            </div>
+        <!-- End Menu Button -->
+
+        <!-- Start Content -->
+        <div class="header1">
+            <div class="header">TASK</div>
+        </div>
+
+        <div class="main">
+            <div class="list-item">
+                <a href="upcoming.html">
+                    <img src="assets/double_arrow.svg" alt="" class="icon">
+                    <span class="description">Upcoming</span>
+                </a>
+            </div>
+            <div class="list-item">
+                <a href="index.html">
+                    <img src="assets/tv_options_edit_channels.svg" alt="" class="icon">
+                    <span class="description">Today</span>
+                </a>
+            </div>
+            <div class="list-item">
+                <a href="calendar.html">
+                    <img src="assets/calendar_month.svg" alt="" class="icon">
+                    <span class="description">Calendar</span>
+                </a>
+            </div>
+            <div class="list-item">
+                <a href="stickywall.html">
+                    <img src="assets/note_stack.svg" alt="" class="icon">
+                    <span class="description">Sticky Wall</span>
+                </a>
+            </div>
+
+            <div class="header2">
+                <div class="header">LIST</div>
+            </div>
+
+            <div class="main">
+                <div class="list-item">
+                    <a href="#">
+                        <img src="assets/crop_square (2).svg" alt="" class="icon">
+                        <span class="description">Personal</span>
+                    </a>
+                </div>
+                <div class="list-item">
+                    <a href="list.html">
+                        <img src="assets/crop_square (1).svg" alt="" class="icon">
+                        <span class="description">Work</span>
+                    </a>
+                </div>
+                <div class="list-item">
+                    <a href="#">
+                        <img src="assets/crop_square.svg" alt="" class="icon">
+                        <span class="description">School</span>
+                    </a>
+                </div>
+                <div class="list-item">
+                    <a href="#" id="openModalBtn">
+                        <img src="assets/add.svg" alt="" class="icon">
+                        <span class="description">Add List</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer">
+                <div class="list-item">
+                    <a href="#">
+                        <img src="assets/logout.svg" alt="" class="icon">
+                        <span class="description">Logout</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- End Content -->
+        </div>
+    <!-- End Sidebar -->
+
+    <!-- Start Main Content -->
+        <div class="main-content">
+        <!-- Start Modal -->
+            <div id="modal" class="modal-list">
+                <div class="modal-content">
+                    <h3>Create new list</h3>
+                    <div class="input-field">
+                        <div class="square"></div>
+                        <input type="text" name="listname" id="listname" placeholder="List Name">
+                    </div>
+                    <div class="color-palette">
+                        <div class="color" style="background-color: #6750A4;"></div>
+                        <div class="color" style="background-color: #BBDEFB;"></div>
+                        <div class="color" style="background-color: #5B18D2;"></div>
+                        <div class="color" style="background-color: #FF9167;"></div>
+                        <div class="color" style="background-color: #80ED5B;"></div>
+                        <div class="color" style="background-color: #663522;"></div>
+                        <div class="color" style="background-color: #FF8888;"></div>
+                        <div class="color" style="background-color: #E086FF;"></div>
+                        <div class="color" style="background-color: #FF05F5;"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <span id="closeModalBtn" class="close">Cancel</span>
+                        <span id="saveModalBtn" class="save">Save</span>
+                        
+                    </div>
+                </div>
+            </div>
+        <!-- End Modal -->
+
+        <!-- Start Navbar -->
+            <nav class="navbartwo navbar-expand-lg-row">
+                    <div class="navbartwo-brand">
+                            <span class="tittle">
+                                CALENDAR
+                            </span>
+                            <span class="items">
+                                <img id="notifications" src="assets/notifications.svg" alt="">
+                                <span><img id="profile" src="assets/3d_avatar_12.png" alt=""></span>
+                                <span class="name">Rizkillah Yuni Rahmawati</span>
+                                <span id="dropdown-container">
+                                    <img id="arrow-dropdown" src="assets/arrow_drop_down.svg" alt="">
+                                    <div id="dropdown-content">
+                                        <!-- Dropdown content goes here -->
+                                        <a href="#" class="dd-1">
+                                            <span><img id="profile" src="assets/3d_avatar_12.png" alt=""></span>
+                                            <span class="dd-desc">
+                                                <h7>Hello,</h7><br>
+                                                <h5>Rizkillah Yuni Rahmawati</h5>
+                                                <h7>rizzkillahrahmawati@gmail.com</h7>
+                                            </span>
+                                        </a>
+                                        <a href="profile.html" class="dd-2">Change Profile</a>
+                                        <a href="#" class="dd-3">Logout</a>
+                                    </div>
+                                </span>
+                    </div>
+            </nav>
+        <!-- End Navbar -->
+
+        <!-- Start Content -->
+            <div class="content">
+                <div id="calendar" class="calendar"></div>
+            </div>
+        <!-- End Content -->
+        </div>
+    <!-- End Main Content -->
+    </div>
+
+    <script>
+        // Persiapan JQuery
+        $(document).ready(function(){
+            var calendar = $('#calendar').fullCalendar({
+                editable: true,
+                // Atur header calendar
+                header: {
+                    left: 'agendaDay,agendaWeek,month',
+                    center: 'title',
+                    right: 'prev,next'
+                },
+                //tampilkan data dari database
+            });
+        });
+        //dropdown profil
+        document.addEventListener('DOMContentLoaded', function () {
+            var arrowIcon = document.getElementById('arrow-dropdown');
+            var dropdownContent = document.getElementById('dropdown-content');
+
+            arrowIcon.addEventListener('click', function () {
+                // Toggle the visibility of the dropdown content
+                dropdownContent.style.display = (dropdownContent.style.display === 'block') ? 'none' : 'block';
+            });
+        });
+
+    </script>
+    <script src="script.js"></script>
+    <script src="addlist.js"></script>
+</body>
+</html>

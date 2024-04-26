@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upcoming PLANIFY</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard">
+    <!-- Start Sidebar -->
+        <div class="sidebar">
+        <!-- Start Menu Button -->
+            <div class="menu">
+                <div id="menu-button">
+                    <input type="checkbox" id="menu-checkbox">
+                    <label for="menu-checkbox" id="menu-label">
+                        <div id="hamburger"></div>
+                    </label>
+                </div>
+            </div>
+        <!-- End Menu Button -->
+
+        <!-- Start Content -->
+        <div class="header1">
+            <div class="header">TASK</div>
+        </div>
+
+        <div class="main">
+            <div class="list-item">
+                <a href="upcoming.html">
+                    <img src="assets/double_arrow.svg" alt="" class="icon">
+                    <span class="description">Upcoming</span>
+                </a>
+            </div>
+            <div class="list-item">
+                <a href="index.html">
+                    <img src="assets/tv_options_edit_channels.svg" alt="" class="icon">
+                    <span class="description">Today</span>
+                </a>
+            </div>
+            <div class="list-item">
+                <a href="calendar.html">
+                    <img src="assets/calendar_month.svg" alt="" class="icon">
+                    <span class="description">Calendar</span>
+                </a>
+            </div>
+            <div class="list-item">
+                <a href="stickywall.html">
+                    <img src="assets/note_stack.svg" alt="" class="icon">
+                    <span class="description">Sticky Wall</span>
+                </a>
+            </div>
+
+            <div class="header2">
+                <div class="header">LIST</div>
+            </div>
+
+            <div class="main">
+                <div class="list-item">
+                    <a href="#">
+                        <img src="assets/crop_square (2).svg" alt="" class="icon">
+                        <span class="description">Personal</span>
+                    </a>
+                </div>
+                <div class="list-item">
+                    <a href="list.html">
+                        <img src="assets/crop_square (1).svg" alt="" class="icon">
+                        <span class="description">Work</span>
+                    </a>
+                </div>
+                <div class="list-item">
+                    <a href="#">
+                        <img src="assets/crop_square.svg" alt="" class="icon">
+                        <span class="description">School</span>
+                    </a>
+                </div>
+                <div class="list-item">
+                    <a href="#" id="openModalBtn">
+                        <img src="assets/add.svg" alt="" class="icon">
+                        <span class="description">Add List</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer">
+                <div class="list-item">
+                    <a href="#">
+                        <img src="assets/logout.svg" alt="" class="icon">
+                        <span class="description">Logout</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- End Content -->
+        </div>
+    <!-- End Sidebar -->
+
+    <!-- Start Main Content -->
+        <div class="main-content">
+        <!-- Start Modal -->
+            <div id="modal" class="modal-list">
+                <div class="modal-content">
+                    <h3>Create new list</h3>
+                    <div class="input-field">
+                        <div class="square"></div>
+                        <input type="text" name="listname" id="listname" placeholder="List Name">
+                    </div>
+                    <div class="color-palette">
+                        <div class="color" style="background-color: #6750A4;"></div>
+                        <div class="color" style="background-color: #BBDEFB;"></div>
+                        <div class="color" style="background-color: #5B18D2;"></div>
+                        <div class="color" style="background-color: #FF9167;"></div>
+                        <div class="color" style="background-color: #80ED5B;"></div>
+                        <div class="color" style="background-color: #663522;"></div>
+                        <div class="color" style="background-color: #FF8888;"></div>
+                        <div class="color" style="background-color: #E086FF;"></div>
+                        <div class="color" style="background-color: #FF05F5;"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <span id="closeModalBtn" class="close">Cancel</span>
+                        <span id="saveModalBtn" class="save">Save</span>
+                        
+                    </div>
+                </div>
+            </div>
+        <!-- End Modal -->
+
+        <!-- Start Modal Add New Task -->
+        <div id="addNewModal" class="modal-newtask">
+            <div class="modal-content2">
+                <div class="card-tittle">
+                    Add New Task 
+                        <button class="close-button" onclick="closeForm()">
+                            <img src="assets/close.svg" alt="" class="icon">
+                        </button>
+                </div>
+                <div class="card-body">
+                    <label class="label-form" for="inputnew">Input Task</label>
+                    <input type="text" id="inputnew" name="inputnew" class="form-control">
+                    <label class="label-form" for="descnew">Description</label>
+                    <input type="text" id="descnew" name="descnew" class="form-control">
+                </div>
+
+                <div class="row">
+                    <label for="listnew">List</label>
+                    <select class="form-select" id="listnew" name="listnew">
+                        <option value="Work">Work</option>
+                        <option value="School">School</option>
+                        <option value="Personal">Personal</option>
+                    </select>
+                </div>
+                <div class="row">
+                    <label for="datenew">Due Date</label>
+                    <input type="date" id="datenew" name="datenew" class="form-control">
+                </div>
+                <div class="row">
+                    <label for="repnew">Repeat</label>
+                    <select class="form-select" id="repnew" name="repnew">
+                        <option value="Work">Every Day</option>
+                        <option value="School">Every Monday</option>
+                        <option value="Personal">Every Tuesday</option>
+                    </select>
+                </div>
+
+                <div class="card-subtittle">Subtask</div>
+                <div class="add-card">
+                    <button id="btn-addsubtask2"><img src="assets/add.svg" alt="" class="icon"></button>Add new subtask
+                </div>
+                <div class="add-sub">
+                    <!-- Initial subtask input field -->
+                    <div class="sub-card2">
+                        <input type="checkbox" name="subcheck" id="subcheck">
+                        <span><input type="text" class="subtask-input" placeholder="Subtask"></span>
+                    </div>    
+                </div> 
+                <button class="del-button" onclick="">Delete</button>
+                <button class="submit-button" onclick="submitForm()">Save Change</button>
+            </div>
+        </div>
+        <!-- End Modal Add New Task -->
+
+                <!-- Start Modal Edit -->
+                <div id="editModal" class="modal-edit">
+                    <div class="modal-content2">
+                        <div class="card-tittle">
+                            Edit Task 
+                            <button class="close-button" onclick="closeEditForm()">
+                                <img src="assets/close.svg" alt="" class="icon">
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <label class="label-form" for="inputtask">Input Task</label>
+                            <input type="text" id="inputtask" name="inputtask" class="form-control">
+                            <label class="label-form" for="desctask">Description</label>
+                            <input type="text" id="desctask" name="desctask" class="form-control">
+                        </div>
+        
+                        <div class="row">
+                            <label for="listtask">List</label>
+                            <select class="form-select" id="listtask" name="listtask">
+                                <option value="Work">Work</option>
+                                <option value="School">School</option>
+                                <option value="Personal">Personal</option>
+                            </select>
+                        </div>
+                        <div class="row">
+                            <label for="datetask">Due Date</label>
+                            <input type="date" id="datetask" name="datetask" class="form-control">
+                        </div>
+                        <div class="row">
+                            <label for="reptask">Repeat</label>
+                            <select class="form-select" id="reptask" name="reptask">
+                                <option value="Work">Every Day</option>
+                                <option value="School">Every Monday</option>
+                                <option value="Personal">Every Tuesday</option>
+                            </select>
+                        </div>
+        
+                        <div class="card-subtittle">Subtask</div>
+                        <div class="add-card">
+                            <button id="btn-addsubtask"><img src="assets/add.svg" alt="" class="icon"></button>Add new subtask
+                        </div>
+                        <div class="add-sub">
+                            <!-- Initial subtask input field -->
+                            <div class="sub-card">
+                                <input type="checkbox" name="subcheck" id="subcheck">
+                                <span><input type="text" class="subtask-input" placeholder="Subtask"></span>
+                            </div>    
+                        </div>
+                        <button class="del-button" onclick="">Delete</button>
+                        <button class="submit-button" onclick="submitForm()">Save Change</button>
+                    </div>
+                </div>
+                <!-- End Modal Edit -->
+
+        <!-- Start Navbar -->
+            <nav class="navbartwo navbar-expand-lg-row">
+                    <div class="navbartwo-brand">
+                            <span class="tittle">
+                                UPCOMING
+                            </span>
+                            <span class="items">
+                                <img id="notifications" src="assets/notifications.svg" alt="">
+                                <span><img id="profile" src="assets/3d_avatar_12.png" alt=""></span>
+                                <span class="name">Rizkillah Yuni Rahmawati</span>
+                                <span id="dropdown-container">
+                                    <img id="arrow-dropdown" src="assets/arrow_drop_down.svg" alt="">
+                                    <div id="dropdown-content">
+                                        <!-- Dropdown content goes here -->
+                                        <a href="#" class="dd-1">
+                                            <span><img id="profile" src="assets/3d_avatar_12.png" alt=""></span>
+                                            <span class="dd-desc">
+                                                <h7>Hello,</h7><br>
+                                                <h5>Rizkillah Yuni Rahmawati</h5>
+                                                <h7>rizzkillahrahmawati@gmail.com</h7>
+                                            </span>
+                                        </a>
+                                        <a href="profile.html" class="dd-2">Change Profile</a>
+                                        <a href="#" class="dd-3">Logout</a>
+                                    </div>
+                                </span>
+                    </div>
+            </nav>
+        <!-- End Navbar -->
+
+        <!-- Start Content -->
+            <div class="content">
+                <div class="subcontent" id="subcontent">
+                    <button class="buttonnew"><img src="assets/icon.svg" alt="" class="icon"><span>Add New Task</span></button>
+                <!-- Start Card Today -->
+                    <div class="card-up">
+                        <div class="cardup-tittle">Today</div>
+                        <table class="custom-table">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="check-title">
+                                            <input type="checkbox" name="" id="" class="checkbox">Research content ideas
+                                            <span class="arrow" onclick="toggleForm()">
+                                                <img src="assets/chevron_right.svg" alt="" class="icon">
+                                            </span>
+                                        </div>
+                                        <div class="desc">
+                                            <span class="date">
+                                                <img src="assets/calendar_today.svg" alt="" class="icon"> 02-01-2024
+                                            </span>
+                                            <span class="category">
+                                                <img src="assets/crop_square (1).svg" alt="" class="icon"> Work
+                                            </span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="check-title">
+                                            <input type="checkbox" name="" id="" class="checkbox">Create a database of guest authors
+                                            <span class="arrow" onclick="toggleForm()">
+                                                <img src="assets/chevron_right.svg" alt="" class="icon">
+                                            </span>
+                                        </div>
+                                        <div class="desc">
+                                            <span class="date">
+                                                <img src="assets/calendar_today.svg" alt="" class="icon"> 02-01-2024
+                                            </span>
+                                            <span class="category">
+                                                <img src="assets/crop_square (1).svg" alt="" class="icon"> Work
+                                            </span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="check-title">
+                                            <input type="checkbox" name="" id="" class="checkbox">Renew driver's license
+                                            <span class="arrow" onclick="toggleForm()">
+                                                <img src="assets/chevron_right.svg" alt="" class="icon">
+                                            </span>
+                                        </div>
+                                        <div class="desc">
+                                            <span class="date">
+                                                <img src="assets/calendar_today.svg" alt="" class="icon"> 02-01-2024
+                                            </span>
+                                            <span class="subtask">
+                                                <img src="assets/Frame 2.svg" alt="" class="icon"> Subtasks
+                                            </span>
+                                            <span class="category">
+                                                <img src="assets/crop_square (2).svg" alt="" class="icon"> Personal
+                                            </span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                <!-- End Card Today -->
+                <div class="row-up">
+                <!-- Start Card Tommorow -->
+                    <div class="card-up2">
+                        <div class="cardup-tittle">Tommorow</div>
+                        <table class="custom-table">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="check-title">
+                                            <input type="checkbox" name="" id="" class="checkbox">Create job posting for SEO specialist
+                                            <span class="arrow" onclick="toggleForm()">
+                                                <img src="assets/chevron_right.svg" alt="" class="icon">
+                                            </span>
+                                        </div>
+                                        <div class="desc">
+                                            <span class="date">
+                                                <img src="assets/calendar_today.svg" alt="" class="icon"> 03-01-2024
+                                            </span>
+                                            <span class="subtask">
+                                                <img src="assets/Frame 2.svg" alt="" class="icon"> Subtasks
+                                            </span>
+                                            <span class="category">
+                                                <img src="assets/crop_square (1).svg" alt="" class="icon"> Work
+                                            </span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="check-title">
+                                            <input type="checkbox" name="" id="" class="checkbox">Request design assets for landing page
+                                            <span class="arrow" onclick="toggleForm()">
+                                                <img src="assets/chevron_right.svg" alt="" class="icon">
+                                            </span>
+                                        </div>
+                                        <div class="desc">
+                                            <span class="date">
+                                                <img src="assets/calendar_today.svg" alt="" class="icon"> 03-01-2024
+                                            </span>
+                                            <span class="category">
+                                                <img src="assets/crop_square (1).svg" alt="" class="icon"> Work
+                                            </span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                <!-- End Card Tommorow -->
+                <!-- Start Card This Week -->
+                <div class="card-up3">
+                    <div class="cardup-tittle">This Week</div>
+                    <table class="custom-table">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="check-title">
+                                        <input type="checkbox" name="" id="" class="checkbox">Research content ideas
+                                        <span class="arrow" onclick="toggleForm()">
+                                            <img src="assets/chevron_right.svg" alt="" class="icon">
+                                        </span>
+                                    </div>
+                                    <div class="desc">
+                                        <span class="date">
+                                            <img src="assets/calendar_today.svg" alt="" class="icon"> 02-01-2024
+                                        </span>
+                                        <span class="category">
+                                            <img src="assets/crop_square (1).svg" alt="" class="icon"> Work
+                                        </span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="check-title">
+                                        <input type="checkbox" name="" id="" class="checkbox">Create a database of guest authors
+                                        <span class="arrow" onclick="toggleForm()">
+                                            <img src="assets/chevron_right.svg" alt="" class="icon">
+                                        </span>
+                                    </div>
+                                    <div class="desc">
+                                        <span class="date">
+                                            <img src="assets/calendar_today.svg" alt="" class="icon"> 02-01-2024
+                                        </span>
+                                        <span class="category">
+                                            <img src="assets/crop_square (1).svg" alt="" class="icon"> Work
+                                        </span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="check-title">
+                                        <input type="checkbox" name="" id="" class="checkbox">Renew driver's license
+                                        <span class="arrow" onclick="toggleForm()">
+                                            <img src="assets/chevron_right.svg" alt="" class="icon">
+                                        </span>
+                                    </div>
+                                    <div class="desc">
+                                        <span class="date">
+                                            <img src="assets/calendar_today.svg" alt="" class="icon"> 02-01-2024
+                                        </span>
+                                        <span class="subtask">
+                                            <img src="assets/Frame 2.svg" alt="" class="icon"> Subtasks
+                                        </span>
+                                        <span class="category">
+                                            <img src="assets/crop_square (2).svg" alt="" class="icon"> Personal
+                                        </span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="check-title">
+                                        <input type="checkbox" name="" id="" class="checkbox">Create job posting for SEO specialist
+                                        <span class="arrow" onclick="toggleForm()">
+                                            <img src="assets/chevron_right.svg" alt="" class="icon">
+                                        </span>
+                                    </div>
+                                    <div class="desc">
+                                        <span class="date">
+                                            <img src="assets/calendar_today.svg" alt="" class="icon"> 03-01-2024
+                                        </span>
+                                        <span class="subtask">
+                                            <img src="assets/Frame 2.svg" alt="" class="icon"> Subtasks
+                                        </span>
+                                        <span class="category">
+                                            <img src="assets/crop_square (1).svg" alt="" class="icon"> Work
+                                        </span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="check-title">
+                                        <input type="checkbox" name="" id="" class="checkbox">Request design assets for landing page
+                                        <span class="arrow" onclick="toggleForm()">
+                                            <img src="assets/chevron_right.svg" alt="" class="icon">
+                                        </span>
+                                    </div>
+                                    <div class="desc">
+                                        <span class="date">
+                                            <img src="assets/calendar_today.svg" alt="" class="icon"> 03-01-2024
+                                        </span>
+                                        <span class="category">
+                                            <img src="assets/crop_square (1).svg" alt="" class="icon"> Work
+                                        </span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            <!-- End Card This Week -->
+                </div>
+                </div>
+
+            </div>
+
+        <!-- End Content -->
+        </div>
+    <!-- End Main Content -->
+    </div>
+    <script src="script.js"></script>
+    <script src="upcoming.js"></script>
+    
+</body>
+</html>
